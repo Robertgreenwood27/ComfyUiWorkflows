@@ -1,0 +1,902 @@
+{
+  "last_node_id": 181,
+  "last_link_id": 266,
+  "nodes": [
+    {
+      "id": 50,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -1080.1262225144956,
+        2013.964534478918
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 90
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            88
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "photo of a woman with light blue hair, pink t-shirt with floral print, jeans shorts, casual fashion, flowers blooming all around, colorful, shopping at walmart"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 51,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -663.126222514496,
+        2013.964534478918
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            89
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "cartoon"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 54,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -1072.1262225144956,
+        2253.9645344789183
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            93
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        304,
+        512,
+        1
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 57,
+      "type": "IterativeLatentUpscale",
+      "pos": [
+        8.873777485504302,
+        2458.9645344789183
+      ],
+      "size": {
+        "0": 344.3999938964844,
+        "1": 150
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 97
+        },
+        {
+          "name": "upscaler",
+          "type": "UPSCALER",
+          "link": 98,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            103
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IterativeLatentUpscale"
+      },
+      "widgets_values": [
+        1.5,
+        3,
+        "",
+        "simple"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 59,
+      "type": "DenoiseScheduleHookProvider",
+      "pos": [
+        -1078.1262225144956,
+        2530.9645344789183
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "PK_HOOK",
+          "type": "PK_HOOK",
+          "links": [
+            102
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DenoiseScheduleHookProvider"
+      },
+      "widgets_values": [
+        "simple",
+        0.1
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 60,
+      "type": "CfgScheduleHookProvider",
+      "pos": [
+        -1077.1262225144956,
+        2401.9645344789183
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "PK_HOOK",
+          "type": "PK_HOOK",
+          "links": [
+            101
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CfgScheduleHookProvider"
+      },
+      "widgets_values": [
+        "simple",
+        13
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 61,
+      "type": "PixelKSampleHookCombine",
+      "pos": [
+        -746.126222514496,
+        2546.9645344789183
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "hook1",
+          "type": "PK_HOOK",
+          "link": 101,
+          "slot_index": 0
+        },
+        {
+          "name": "hook2",
+          "type": "PK_HOOK",
+          "link": 102,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "PK_HOOK",
+          "type": "PK_HOOK",
+          "links": [
+            100
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixelKSampleHookCombine"
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 62,
+      "type": "VAEDecode",
+      "pos": [
+        10.873777485504304,
+        2652.9645344789183
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 103
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 104
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            105
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 56,
+      "type": "PreviewImage",
+      "pos": [
+        -128.12622251449568,
+        1871.9645344789155
+      ],
+      "size": [
+        302.5445595774505,
+        539.8630452175978
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 96
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 49,
+      "type": "ToBasicPipe",
+      "pos": [
+        -410,
+        1849
+      ],
+      "size": {
+        "0": 241.79998779296875,
+        "1": 106
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 85
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 86
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 266,
+          "slot_index": 2
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 88
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 89
+        }
+      ],
+      "outputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "links": [
+            92
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ToBasicPipe"
+      }
+    },
+    {
+      "id": 55,
+      "type": "VAEDecode",
+      "pos": [
+        -354,
+        2271
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 94
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 95
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            96
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 53,
+      "type": "VAELoader",
+      "pos": [
+        -996,
+        1911
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "sdxl_vae.safetensors"
+      ]
+    },
+    {
+      "id": 48,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -770.126222514496,
+        1873.9645344789155
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            85
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            86,
+            90,
+            91
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            266
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "epicrealism_naturalSinRC1VAE.safetensors"
+      ]
+    },
+    {
+      "id": 52,
+      "type": "ImpactKSamplerBasicPipe",
+      "pos": [
+        -741.126222514496,
+        2256.9645344789183
+      ],
+      "size": {
+        "0": 367.79998779296875,
+        "1": 242
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 92
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 93,
+          "slot_index": 1
+        },
+        {
+          "name": "scheduler_func_opt",
+          "type": "SCHEDULER_FUNC",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASIC_PIPE",
+          "type": "BASIC_PIPE",
+          "links": [
+            99
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            94,
+            97
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            95,
+            104
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactKSamplerBasicPipe"
+      },
+      "widgets_values": [
+        578193077952393,
+        "fixed",
+        40,
+        6.5,
+        "dpmpp_sde",
+        "karras",
+        1
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 58,
+      "type": "PixelKSampleUpscalerProviderPipe",
+      "pos": [
+        -350.1262225144957,
+        2447.9645344789183
+      ],
+      "size": {
+        "0": 342.5999755859375,
+        "1": 378
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "basic_pipe",
+          "type": "BASIC_PIPE",
+          "link": 99
+        },
+        {
+          "name": "upscale_model_opt",
+          "type": "UPSCALE_MODEL",
+          "link": null
+        },
+        {
+          "name": "pk_hook_opt",
+          "type": "PK_HOOK",
+          "link": 100,
+          "slot_index": 2
+        },
+        {
+          "name": "scheduler_func_opt",
+          "type": "SCHEDULER_FUNC",
+          "link": null,
+          "slot_index": 3
+        },
+        {
+          "name": "tile_cnet_opt",
+          "type": "CONTROL_NET",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "UPSCALER",
+          "type": "UPSCALER",
+          "links": [
+            98
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixelKSampleUpscalerProviderPipe"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        578193077952393,
+        "fixed",
+        30,
+        6.5,
+        "dpmpp_sde",
+        "karras",
+        0.3,
+        false,
+        512,
+        1
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 63,
+      "type": "SaveImage",
+      "pos": [
+        381.8737774855043,
+        1880.9645344789155
+      ],
+      "size": [
+        455.43884882845873,
+        823.8108929944328
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 105
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    }
+  ],
+  "links": [
+    [
+      85,
+      48,
+      0,
+      49,
+      0,
+      "MODEL"
+    ],
+    [
+      86,
+      48,
+      1,
+      49,
+      1,
+      "CLIP"
+    ],
+    [
+      88,
+      50,
+      0,
+      49,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      89,
+      51,
+      0,
+      49,
+      4,
+      "CONDITIONING"
+    ],
+    [
+      90,
+      48,
+      1,
+      50,
+      0,
+      "CLIP"
+    ],
+    [
+      91,
+      48,
+      1,
+      51,
+      0,
+      "CLIP"
+    ],
+    [
+      92,
+      49,
+      0,
+      52,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      93,
+      54,
+      0,
+      52,
+      1,
+      "LATENT"
+    ],
+    [
+      94,
+      52,
+      1,
+      55,
+      0,
+      "LATENT"
+    ],
+    [
+      95,
+      52,
+      2,
+      55,
+      1,
+      "VAE"
+    ],
+    [
+      96,
+      55,
+      0,
+      56,
+      0,
+      "IMAGE"
+    ],
+    [
+      97,
+      52,
+      1,
+      57,
+      0,
+      "LATENT"
+    ],
+    [
+      98,
+      58,
+      0,
+      57,
+      1,
+      "UPSCALER"
+    ],
+    [
+      99,
+      52,
+      0,
+      58,
+      0,
+      "BASIC_PIPE"
+    ],
+    [
+      100,
+      61,
+      0,
+      58,
+      2,
+      "PK_HOOK"
+    ],
+    [
+      101,
+      60,
+      0,
+      61,
+      0,
+      "PK_HOOK"
+    ],
+    [
+      102,
+      59,
+      0,
+      61,
+      1,
+      "PK_HOOK"
+    ],
+    [
+      103,
+      57,
+      0,
+      62,
+      0,
+      "LATENT"
+    ],
+    [
+      104,
+      52,
+      2,
+      62,
+      1,
+      "VAE"
+    ],
+    [
+      105,
+      62,
+      0,
+      63,
+      0,
+      "IMAGE"
+    ],
+    [
+      266,
+      48,
+      2,
+      49,
+      2,
+      "VAE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.42409761837248483,
+      "offset": [
+        1986.8252316697651,
+        -1174.2691959724377
+      ]
+    }
+  },
+  "version": 0.4
+}
